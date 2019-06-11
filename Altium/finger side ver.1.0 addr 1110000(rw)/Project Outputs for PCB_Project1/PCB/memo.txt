@@ -1,0 +1,12 @@
+
+部品面パターン　　　　　　　main_pcb.GTL
+半田面パターン　　　　　　　main_pcb.GBL
+部品面シルク　　　　　　　　main_pcb.GTO
+半田面シルク　　　　　　　　main_pcb.GBO
+部品面レジスト　　　　　　　main_pcb.GTS
+半田面レジスト　　　　　　　main_pcb.GBS
+外形線　　　　　　　　　　　main_pcb.GM1
+
+
+ドリルデータ（NCデータ）　　main_pcb.TXT
+ドリルリスト　　　　　　　　main_pcb.DRR

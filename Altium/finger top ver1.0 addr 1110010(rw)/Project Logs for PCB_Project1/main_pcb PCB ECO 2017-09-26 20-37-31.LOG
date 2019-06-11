@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=GND Pin=C15-1
+Removed Pin From Net: NetName=NetC1_2 Pin=C15-2
+Removed Pin From Net: NetName=GND Pin=C16-1
+Removed Pin From Net: NetName=NetC1_2 Pin=C16-2
+Removed Pin From Net: NetName=NetC1_2 Pin=R17-1
+Removed Pin From Net: NetName=NetC1_2 Pin=R18-1
+Removed Pin From Net: NetName=GND Pin=V7-1
+Removed Pin From Net: NetName=NetC1_2 Pin=V7-3
+Removed Pin From Net: NetName=NetC1_2 Pin=V7-4
+Removed Member From Class: ClassName=main_schematic Member=C15
+Removed Member From Class: ClassName=main_schematic Member=C16
+Removed Member From Class: ClassName=main_schematic Member=R17
+Removed Member From Class: ClassName=main_schematic Member=R18
+Removed Member From Class: ClassName=main_schematic Member=V7

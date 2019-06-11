@@ -1,0 +1,78 @@
+<!-- USE THIS NODE IN FETCH -->
+<launch>
+
+  <arg name="real_sensor" default="true"/>
+  <arg name="dummy_sensor" default="false"/>
+  <arg name="use_fetch" default="true"/>
+  <arg name="recognition" default="false"/>
+  <arg name="rviz" default="false"/>
+  <arg name="camera_remote" default="camera_remote"/>
+
+  <machine name="fetch15" user="yamaguchi" address="fetch15.jsk.imi.i.u-tokyo.ac.jp" env-loader="/home/yamaguchi/env-loader.sh" if="$(arg use_fetch)"/>
+  <machine name="localhost" address="localhost" unless="$(arg use_fetch)"/>
+
+  <!-- to publish real proximity msg -->
+  <group if="$(arg real_sensor)">
+    <node if="$(arg use_fetch)" pkg="rosserial_python" type="serial_node.py" name="serial_node0" respawn="true" output="screen" machine="fetch15">
+      <param name="port" type="string" value="/dev/ttyACM0" />
+      <param name="baud" value="57600" />
+    </node>
+    <node if="$(arg use_fetch)" pkg="rosserial_python" type="serial_node.py" name="serial_node1" respawn="true" output="screen" machine="fetch15">
+      <param name="port" type="string" value="/dev/ttyACM1" />
+      <param name="baud" value="57600" />
+    </node>
+
+    <node unless="$(arg use_fetch)" pkg="rosserial_python" type="serial_node.py" name="serial_node0" respawn="true" output="screen" machine="localhost">
+      <param name="port" type="string" value="/dev/ttyACM0" />
+      <param name="baud" value="57600" />
+    </node>
+    <node unless="$(arg use_fetch)" pkg="rosserial_python" type="serial_node.py" name="serial_node1" respawn="true" output="screen" machine="localhost">
+      <param name="port" type="string" value="/dev/ttyACM1" />
+      <param name="baud" value="57600" />
+    </node>
+  </group>
+
+  <!-- to publish dummy proximity msg -->
+  <group if="$(arg dummy_sensor)">
+    <node pkg="APFinger" type="dummy-proximity-publisher.l" name="dummy_proximity_publisher" args="&quot;(dummy-proximities-publish 1000)&quot;" respawn="true" output="screen"/>
+  </group>
+
+  <!-- decompose proximity msg -->
+  <node pkg="APFinger" type="decompose_msg.py" name="decompose_msg_right" output="screen" respawn="true">
+    <param name="l_r" value="/right" />
+    <param name="sensitivity" value="1000" />
+    <param name="ea_weight" value="0.3" />
+    <remap from="input" to="/proximity_sensors/right/all" />
+  </node>
+  <node pkg="APFinger" type="decompose_msg.py" name="decompose_msg_left" output="screen" respawn="true">
+    <param name="l_r" value="/left" />
+    <param name="sensitivity" value="1000" />
+    <param name="ea_weight" value="0.3" />
+    <remap from="input" to="/proximity_sensors/left/all" />
+  </node>
+
+  <!-- Visual recognition -->
+  <group if="$(arg recognition)">
+    <!-- Reconstruct pointcloud from robot on this computer -->
+    <include file="$(find jsk_pcl_ros)/launch/openni2_remote.launch">
+      <arg name="camera" value="$(arg camera_remote)" />
+      <arg name="local_camera" value="head_camera" />
+      <arg name="rgb_camera_info_url" value="/head_camera/rgb/camera_info" />
+      <arg name="depth_camera_info_url" value="/head_camera/depth/camera_info" />
+      <arg name="republish" value="true" />
+    </include>
+  </group>
+
+  <!-- for visualization of proximity sensors -->
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="visualize_proximity_sensors" output="screen" respawn="true" args="-d $(find APFinger)/rviz/proximity_sensor_marker.rviz"/>
+  </group>
+  <rosparam command="load" file="$(find APFinger)/config/proximity.yaml"/>
+  <node pkg="APFinger" type="distance-publisher.l" name="distance_publisher" args="&quot;(main)&quot;" output="screen" respawn="true"/>
+  <node pkg="APFinger" type="publish-sensor-tf.l" name="sensor_tf_publisher" args="&quot;(main)&quot;" output="screen" respawn="true"/>
+  <node pkg="APFinger" type="publish-pointcloud.l" name="pointcloud_publisher" args="&quot;(main)&quot;" output="screen" respawn="true"/>
+  <group unless="$(arg use_fetch)">
+    <include file="$(find fetch_gazebo)/launch/simulation.launch" />
+    <include file="$(find fetch_moveit_config)/launch/move_group.launch" />
+  </group>
+</launch>

@@ -1,0 +1,4 @@
+Added Component: Designator=P?(HDR1X4)
+Added Member To Class: ClassName=main_schematic Member=Component C6 Cap
+Added Member To Class: ClassName=main_schematic Member=Component P? Header 4
+Added Room: Name=main_schematic

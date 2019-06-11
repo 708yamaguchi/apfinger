@@ -1,0 +1,32 @@
+Added Component: Designator=C1(RAD-0.3)
+Added Component: Designator=C2(RAD-0.3)
+Added Component: Designator=P1(HDR1X4)
+Added Component: Designator=R1(AXIAL-0.3)
+Added Component: Designator=R2(AXIAL-0.3)
+Added Component: Designator=R3(AXIAL-0.3)
+Added Component: Designator=R4(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Net: Name=GND
+Added Net: Name=Net_2
+Added Pin To Net: NetName=Net_3 Pin=C1-2
+Added Pin To Net: NetName=Net_3 Pin=C2-2
+Added Pin To Net: NetName=Net_3 Pin=P1-1
+Added Pin To Net: NetName=Net_3 Pin=R1-2
+Added Pin To Net: NetName=Net_3 Pin=R2-2
+Added Pin To Net: NetName=Net_3 Pin=R3-2
+Added Pin To Net: NetName=Net_3 Pin=R4-2
+Added Net: Name=Net_3
+Added Pin To Net: NetName=Net_7 Pin=R3-1
+Added Net: Name=Net_7
+Added Pin To Net: NetName=Net_8 Pin=R4-1
+Added Net: Name=Net_8
+Added Pin To Net: NetName=NetM1_22 Pin=P1-3
+Added Pin To Net: NetName=NetM1_22 Pin=R1-1
+Added Net: Name=NetM1_22
+Added Pin To Net: NetName=NetM1_23 Pin=P1-2
+Added Pin To Net: NetName=NetM1_23 Pin=R2-1
+Added Net: Name=NetM1_23
+Added Class: Name=main_schematic
+Added Room: Name=main_schematic

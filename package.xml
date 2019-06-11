@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>APFinger</name>
+  <version>1.0.0</version>
+  <description>package for using APFinger</description>
+
+  <maintainer email="yamaguchi@jsk.imi.i.u-tokyo.ac.jp">Naoya Yamaguchi</maintainer>
+
+  <license>BSD</license>
+
+  <author email="yamaguchi@jsk.imi.i.u-tokyo.ac.jp">Naoya Yamaguchi</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>roseus</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>rosserial_python</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>roseus</run_depend>
+  <run_depend>rospy</run_depend>
+
+  <export>
+  </export>
+</package>

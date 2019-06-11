@@ -1,0 +1,3 @@
+Header header
+APFinger/DistanceAndProximity distance_and_proximity
+float64 gripper_pos

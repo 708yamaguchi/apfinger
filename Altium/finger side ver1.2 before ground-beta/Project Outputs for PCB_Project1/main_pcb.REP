@@ -1,0 +1,115 @@
+*************************************************************
+FileName = main_pcb.GBR
+AutoAperture = True
+*************************************************************
+Generating : Top Layer
+      File : main_pcb.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : main_pcb.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D18
+    D19
+    D20
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : main_pcb.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D16
+    D17
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : main_pcb.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : main_pcb.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D26
+    D27
+    D28
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : main_pcb.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 1
+      File : main_pcb.GM1
+
+    Adding Layer      : Mechanical 1
+
+
+Used DCodes :
+    D17
+    D29
+*************************************************************
+

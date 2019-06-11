@@ -1,0 +1,44 @@
+Added Component: Designator=*(SOP8 - duplicate)
+Added Component: Designator=C1(RAD-0.3)
+Added Component: Designator=C2(RAD-0.3)
+Added Component: Designator=P?(SOP24)
+Added Component: Designator=Pin1(HDR1X4)
+Added Component: Designator=R1(AXIAL-0.3)
+Added Component: Designator=R2(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=*-1
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Pin To Net: NetName=GND Pin=P?-12
+Added Pin To Net: NetName=GND Pin=P?-21
+Added Pin To Net: NetName=GND Pin=Pin1-4
+Added Net: Name=GND
+Added Pin To Net: NetName=Net*_2 Pin=*-2
+Added Pin To Net: NetName=Net*_2 Pin=*-5
+Added Net: Name=Net*_2
+Added Pin To Net: NetName=Net*_3 Pin=*-3
+Added Pin To Net: NetName=Net*_3 Pin=*-4
+Added Pin To Net: NetName=Net*_3 Pin=C1-2
+Added Pin To Net: NetName=Net*_3 Pin=C2-2
+Added Pin To Net: NetName=Net*_3 Pin=P?-24
+Added Pin To Net: NetName=Net*_3 Pin=Pin1-1
+Added Pin To Net: NetName=Net*_3 Pin=R1-2
+Added Pin To Net: NetName=Net*_3 Pin=R2-2
+Added Net: Name=Net*_3
+Added Pin To Net: NetName=Net*_7 Pin=*-7
+Added Pin To Net: NetName=Net*_7 Pin=P?-4
+Added Pin To Net: NetName=Net*_7 Pin=R1-1
+Added Net: Name=Net*_7
+Added Pin To Net: NetName=Net*_8 Pin=*-8
+Added Pin To Net: NetName=Net*_8 Pin=P?-5
+Added Pin To Net: NetName=Net*_8 Pin=R2-1
+Added Net: Name=Net*_8
+Added Pin To Net: NetName=NetP?_22 Pin=P?-22
+Added Pin To Net: NetName=NetP?_22 Pin=Pin1-3
+Added Net: Name=NetP?_22
+Added Pin To Net: NetName=NetP?_23 Pin=P?-23
+Added Pin To Net: NetName=NetP?_23 Pin=Pin1-2
+Added Net: Name=NetP?_23
+Added Class: Name=main_schematic
+Added Room: Name=main_schematic
