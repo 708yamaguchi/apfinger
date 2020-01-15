@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>APFinger</name>
+  <name>apfinger</name>
   <version>1.0.0</version>
-  <description>package for using APFinger</description>
+  <description>package for using APfinger</description>
 
   <maintainer email="yamaguchi@jsk.imi.i.u-tokyo.ac.jp">Naoya Yamaguchi</maintainer>
 

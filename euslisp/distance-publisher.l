@@ -4,7 +4,7 @@
 
 (ros::load-ros-manifest "roseus")
 (ros::load-ros-manifest "fetch_driver_msgs")
-(ros::load-ros-manifest "APFinger")
+(ros::load-ros-manifest "apfinger")
 
 (defclass distance-publisher
   :super propertied-object
@@ -35,7 +35,7 @@
       (ros::advertise "/proximity_marker_right" visualization_msgs::MarkerArray 1)
       (dolist (l/r fingers-)
         (dolist (frame frame-list-)
-          (ros::advertise (format nil "/proximity_distance~A~A" l/r frame) APFinger::ProximityDistances 1)
+          (ros::advertise (format nil "/proximity_distance~A~A" l/r frame) apfinger::ProximityDistances 1)
           ;; (if (equal frame "/top")
           ;;   (dotimes (i 4)
           ;;     (ros::advertise (format nil "/proximity_marker~A~A/~A" l/r frame i) visualization_msgs::Marker 1))
@@ -48,7 +48,7 @@
       (ros::subscribe "/set_init_proximities" std_msgs::Empty #'send self :cb-init-proximities)
       (dolist (l/r fingers-)
         (dolist (frame frame-list-)
-          (ros::subscribe (format nil "/proximity_sensors~A~A" l/r frame) APFinger::ProximityArray #'send self :cb-set-proximities l/r)))
+          (ros::subscribe (format nil "/proximity_sensors~A~A" l/r frame) apfinger::ProximityArray #'send self :cb-set-proximities l/r)))
       (setq proximities-raw- (make-hash-table :test #'equal))
       (setq proximities-calibrated- (make-hash-table :test #'equal))
       (setq default-init-proximities- (make-hash-table :test #'equal))
@@ -91,13 +91,13 @@
         (dolist (l/r fingers-)
           (dolist (frame frame-list-)
             ;; (sethash frame (gethash l/r init-proximities-) (elt default-init-proximities- i))
-            (setq prox-arr (instance APFinger::ProximityArray :init))
-            (send prox-arr :proximities (mapcar #'(lambda(x) (let ((prox (instance APFinger::Proximity :init))) (send prox *type* x) prox)) (elt prox-list i)))
+            (setq prox-arr (instance apfinger::ProximityArray :init))
+            (send prox-arr :proximities (mapcar #'(lambda(x) (let ((prox (instance apfinger::Proximity :init))) (send prox *type* x) prox)) (elt prox-list i)))
             (send (send prox-arr :header) :frame_id frame)
             (sethash frame (gethash l/r default-init-proximities-) prox-arr)
             (sethash frame (gethash l/r default-calib-coef-) (elt coef-list i))
             (setq prox-arr (copy-object prox-arr))
-            (send prox-arr :proximities (mapcar #'(lambda(x) (let ((prox (instance APFinger::Proximity :init))) (send prox *type* x) prox)) (elt dist-list i)))
+            (send prox-arr :proximities (mapcar #'(lambda(x) (let ((prox (instance apfinger::Proximity :init))) (send prox *type* x) prox)) (elt dist-list i)))
             (sethash frame (gethash l/r proximities-calibrated-) prox-arr)
             (setq i (+ i 1)))))
       (setq init-proximities- (copy-object default-init-proximities-))
@@ -155,7 +155,7 @@
     (when initp-
       (dolist (l/r fingers-)
         (dolist (frame frame-list-)
-          (let ((distance-msg (instance APFinger::ProximityDistances :init)))
+          (let ((distance-msg (instance apfinger::ProximityDistances :init)))
             (send distance-msg :data (coerce (send self :get-proximity-value l/r frame :type :calibrated) float-vector))
             (send distance-msg :header (send (send self :get-proximities l/r frame :type :raw) :header))
             (ros::publish (format nil "/proximity_distance~A~A" l/r frame) distance-msg))))))

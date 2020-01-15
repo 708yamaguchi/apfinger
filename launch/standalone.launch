@@ -1,5 +1,5 @@
 <launch>
-  <include file="$(find APFinger)/launch/proximity.launch">
+  <include file="$(find apfinger)/launch/proximity.launch">
     <arg name="use_fetch" value="false"/>
     <arg name="rviz" value="true"/>
   </include>

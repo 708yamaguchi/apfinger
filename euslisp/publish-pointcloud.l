@@ -3,7 +3,7 @@
 (ros::load-ros-manifest "roseus")
 (ros::load-ros-manifest "fetcheus")
 (ros::load-ros-manifest "sensor_msgs")
-(ros::load-ros-manifest "APFinger")
+(ros::load-ros-manifest "apfinger")
 (ros::roseus "publish_pointcloud")
 
 (defclass publish-pointcloud
@@ -25,7 +25,7 @@
       (dolist (frame frame-list-)
         (sethash frame (gethash l/r pointcloud-table-) nil)
         (ros::subscribe (concatenate string "/proximity_distance" l/r frame)
-                        APFinger::ProximityDistances
+                        apfinger::ProximityDistances
                         #'send self :cb-pub-pointcloud l/r frame)
         (ros::advertise (concatenate string "/proximity_pointcloud" l/r frame)
                         sensor_msgs::PointCloud2 1)))

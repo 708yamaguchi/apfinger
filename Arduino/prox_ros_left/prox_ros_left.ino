@@ -1,6 +1,6 @@
 #include <ros.h>
 #include <Wire.h>
-#include <APFinger/Proximities.h>
+#include <apfinger/Proximities.h>
 
 #define WIRE Wire
 
@@ -23,7 +23,7 @@
 
 /***** ROS *****/
 ros::NodeHandle  nh;
-APFinger::Proximities proximity_msg;
+apfinger::Proximities proximity_msg;
 ros::Publisher proximity_sensor_pub("proximity_sensors/left/all", &proximity_msg);
 unsigned int proximities[NSENSORS];
 

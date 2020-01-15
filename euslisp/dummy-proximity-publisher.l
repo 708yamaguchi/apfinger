@@ -1,15 +1,15 @@
 #!/usr/bin/env roseus
 
 (ros::roseus "dummy_proximity_publisher")
-(ros::load-ros-manifest "APFinger")
+(ros::load-ros-manifest "apfinger")
 
 (defun dummy-proximities-publish (&optional (val 1000))
-  (ros::advertise "/proximity_sensors/left/all" APFinger::Proximities)
-  (ros::advertise "/proximity_sensors/right/all" APFinger::Proximities)
+  (ros::advertise "/proximity_sensors/left/all" apfinger::Proximities)
+  (ros::advertise "/proximity_sensors/right/all" apfinger::Proximities)
   (ros::rate 10)
   (let ((value nil)
-        (prox-left-msg (instance APFinger::Proximities :init))
-        (prox-right-msg (instance APFinger::Proximities :init)))
+        (prox-left-msg (instance apfinger::Proximities :init))
+        (prox-right-msg (instance apfinger::Proximities :init)))
     (do-until-key
      ;; (setq value (+ val (- (random 1000.0) (/ val 2)))) ;; set random value for each proximity sensor
      (setq value 1000) ;; set constant value for each proximity sensor
@@ -25,20 +25,20 @@
 
 
 (defun dummy-proximity-array-publish (&optional (val 1000))
-  (ros::advertise "/proximity_sensor_topic1" APFinger::ProximityArray)
-  (ros::advertise "/proximity_sensor_topic2" APFinger::ProximityArray)
+  (ros::advertise "/proximity_sensor_topic1" apfinger::ProximityArray)
+  (ros::advertise "/proximity_sensor_topic2" apfinger::ProximityArray)
   (ros::rate 10)
   (let ((value nil)
-        (prox-left-msg (instance APFinger::ProximityArray :init))
-        (prox-right-msg (instance APFinger::ProximityArray :init)))
+        (prox-left-msg (instance apfinger::ProximityArray :init))
+        (prox-right-msg (instance apfinger::ProximityArray :init)))
     (do-until-key
      (setq value (round (+ val (- (random 1000.0) (/ val 2)))))
      (setq prox-left-list
            (make-list 3 :initial-element
-                      (instance APFinger::Proximity :init :proximity value)))
+                      (instance apfinger::Proximity :init :proximity value)))
      (setq prox-right-list
            (make-list 3 :initial-element
-                      (instance APFinger::Proximity :init :proximity value)))
+                      (instance apfinger::Proximity :init :proximity value)))
      (send prox-left-msg :proximities prox-left-list)
      (send prox-right-msg :proximities prox-right-list)
      (setq aaa prox-left-list)

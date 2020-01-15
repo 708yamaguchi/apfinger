@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(APFinger)
+project(apfinger)
 
 # force_proximity_ros can not be found on build.ros.org
 # find_package(force_proximity_ros QUIET)

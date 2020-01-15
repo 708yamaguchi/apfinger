@@ -4,7 +4,7 @@ import numpy as np
 import rospy
 
 from sensor_msgs.msg import PointCloud2, PointField
-from APFinger.msg import ProximityDistances
+from apfinger.msg import ProximityDistances
 
 
 class ProximityPointCloud(object):

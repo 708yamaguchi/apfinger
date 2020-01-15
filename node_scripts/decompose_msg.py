@@ -3,10 +3,9 @@
 import numpy as np
 import rospy
 
-from APFinger.msg import Proximities
-from APFinger.msg import ProximityStates
-from APFinger.msg import ProximityArray
-from APFinger.msg import Proximity
+from apfinger.msg import Proximities
+from apfinger.msg import ProximityArray
+from apfinger.msg import Proximity
 from jsk_topic_tools import ConnectionBasedTransport
 
 

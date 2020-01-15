@@ -1,2 +1,2 @@
 std_msgs/Header header
-APFinger/Proximity proximity
+apfinger/Proximity proximity

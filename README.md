@@ -10,12 +10,12 @@ SUBSYSTEM=="tty", MODE="0666"
 
 #### Setup ROS workspace
 ```bash
-mkdir -p APFinger_ws/src
-cd  APFinger_ws
+mkdir -p apfinger_ws/src
+cd  apfinger_ws
 wstool init src
 cd src
 git clone https://github.com/jsk-ros-pkg/jsk_robot.git
-git clone https://github.com/708yamaguchi/APFinger.git
+git clone https://github.com/708yamaguchi/apfinger.git
 cd ..
 if [ $ROS_DISTRO = "indigo" ]; then
   wstool merge -t src https://raw.githubusercontent.com/jsk-ros-pkg/jsk_robot/master/jsk_fetch_robot/jsk_fetch_user.rosinstall.indigo
@@ -25,21 +25,21 @@ fi
 wstool update -t src
 source /opt/ros/$ROS_DISTRO/setup.bash
 rosdep install -y -r --from-paths src --ignore-src
-catkin build fetcheus jsk_fetch_startup APFinger
+catkin build fetcheus jsk_fetch_startup apfinger
 source devel/setup.bash
 ```
 
 ## Usage
 #### Publish topics from proximity sensors with real Fetch robot
 ```bash
-source ~/APFinger_ws/devel/setup.bash
-roslaunch APFinger proximity.launch  # do not run rviz by default
+source ~/apfinger_ws/devel/setup.bash
+roslaunch apfinger proximity.launch  # do not run rviz by default
 ```
 
 #### Publish dummy pointcloud with Gazebo
 ```bash
-source ~/APFinger_ws/devel/setup.bash
-roslaunch APFinger standalone.launch
+source ~/apfinger_ws/devel/setup.bash
+roslaunch apfinger standalone.launch
 ```
 
 ## Paper
