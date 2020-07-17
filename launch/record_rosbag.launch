@@ -1,0 +1,20 @@
+<launch>
+
+<!-- USAGE -->
+<!-- roslaunch apfinger record_rosbag.launch filename:=$HOME/.ros/rosbag/hoge.bag -->
+
+  <arg name="filename" />
+  <node name="rosbag_record"
+        pkg="rosbag" type="record"
+        args="-O $(arg filename)
+              -b 0
+
+              /proximity_sensors/left/all
+              /proximity_sensors/right/all
+
+              /set_init_proximities
+              "
+
+        output="screen">
+  </node>
+</launch>
